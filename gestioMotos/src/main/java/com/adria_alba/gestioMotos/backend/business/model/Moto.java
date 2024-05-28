@@ -19,8 +19,7 @@ public class Moto implements Serializable {
     private Double precio;
     
     @Enumerated(EnumType.STRING)
-    private Familia familia; 
-    private String marca;
+    private Familia familia;
     private boolean descatalogado;
     
     public Moto() {
@@ -67,14 +66,6 @@ public class Moto implements Serializable {
         this.familia = familia;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public boolean isDescatalogado() {
         return descatalogado;
     }
@@ -111,7 +102,7 @@ public class Moto implements Serializable {
     @Override
     public String toString() {
         return "Moto [id=" + id + ", nombre=" + nombre + ", modelo=" + modelo + ", precio=" + precio
-                + ", familia=" + familia + ", marca=" + marca + ", descatalogado=" + descatalogado + "]";
+                + ", familia=" + familia + ", descatalogado=" + descatalogado + "]";
     }
     
 }

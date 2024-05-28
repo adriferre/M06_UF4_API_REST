@@ -1,0 +1,14 @@
+-- https://www.h2database.com/html/grammar.html
+
+CREATE TABLE MOTOS (
+
+	ID				BIGINT			NOT NULL,
+	NOMBRE			VARCHAR(150)	,
+	MODELO			VARCHAR(250)	,
+	PRECIO			DOUBLE			,
+	FAMILIA			VARCHAR(10)		,
+	DESCATALOGADO	BOOLEAN			,
+	
+	PRIMARY KEY (ID)
+
+);

@@ -132,7 +132,7 @@ public class MotoControllerTest {
 		
 		String requestBody = objectMapper.writeValueAsString(moto1);
 		
-		miniPostman.perform(post("/productos").content(requestBody).contentType("application/json"))
+		miniPostman.perform(post("/motos").content(requestBody).contentType("application/json"))
 						.andExpect(status().isCreated())
 						.andExpect(header().string("Location","http://localhost/motos/1033"));
 	}
@@ -165,14 +165,14 @@ public class MotoControllerTest {
 	@Test
 	void eliminamos_moto_no_existente() throws Exception{
 		
-		Mockito.doThrow(new IllegalStateException("xxxx")).when(motoServices).delete(789L);
+		Mockito.doThrow(new IllegalStateException("xxxx")).when(motoServices).delete(998L);
 		
-		MvcResult respuesta = miniPostman.perform(delete("/moto/789"))
+		MvcResult respuesta = miniPostman.perform(delete("/moto/998"))
 								.andExpect(status().isNotFound())
 								.andReturn();
 		
 		String responseBody = respuesta.getResponse().getContentAsString();
-		String respuestaEsperada = objectMapper.writeValueAsString(new RespuestaError("No se encuentra la moto con id [789]. No se ha podido eliminar."));
+		String respuestaEsperada = objectMapper.writeValueAsString(new RespuestaError("No se encuentra la moto con id [998]. No se ha podido eliminar."));
 		
 		assertThat(responseBody).isEqualToIgnoringWhitespace(respuestaEsperada);
 		

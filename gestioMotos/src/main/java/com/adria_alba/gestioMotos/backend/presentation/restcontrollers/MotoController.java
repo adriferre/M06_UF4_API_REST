@@ -53,7 +53,7 @@ public class MotoController {
 		Optional<Moto> optional = motoServices.read(id);
 		
 		if(!optional.isPresent()) {
-			throw new PresentationException("No se encuentra el producto con id " + id, HttpStatus.NOT_FOUND);
+			throw new PresentationException("No se encuentra la moto con id " + id, HttpStatus.NOT_FOUND);
 		}
 		
 		return optional.get();
@@ -70,7 +70,7 @@ public class MotoController {
 			throw new PresentationException(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		
-		URI uri = ucb.path("/productos/{codigo}").build(codigo);
+		URI uri = ucb.path("/motos/{codigo}").build(codigo);
 		
 		return ResponseEntity.created(uri).build();
 	}
@@ -82,7 +82,7 @@ public class MotoController {
 		try {
 			motoServices.delete(id);
 		} catch(IllegalStateException e) {
-			throw new PresentationException("No se encuentra el producto con id [" + id + "]. No se ha podido eliminar.", HttpStatus.NOT_FOUND);
+			throw new PresentationException("No se encuentra la moto con id [" + id + "]. No se ha podido eliminar.", HttpStatus.NOT_FOUND);
 		}
 		
 	}

@@ -41,27 +41,27 @@ public class MotoRepositoryTest {
 		assertEquals(2, motos.size());
 			
 		assertTrue(moto4.equals(motos.get(0)));
-		assertTrue(moto1.equals(motos.get(1)));
+		assertTrue(moto2.equals(motos.get(1)));
 		
 	}
 	
 	@Test
 	void obtenermos_motos_descatalogadas_por_familia() {
 		
-		List<Moto> motos = motoRepository.findDescatalogadosByFamilia(Familia.ENDURO);
+		List<Moto> motos = motoRepository.findDescatalogadosByFamilia(Familia.DEPORTIVAS);
 		
 		assertEquals(1, motos.size());
 		
-		assertTrue(moto2.equals(motos.get(0)));
+		assertTrue(moto1.equals(motos.get(0)));
 	}
 	
 	@Test
 	void obtenemos_todas_las_Moto1DTO() {
 		
-		List<Moto1DTO> productos1DTO = motoRepository.getAllMoto1DTO();
+		List<Moto1DTO> motos1DTO = motoRepository.getAllMoto1DTO();
 		
-		for(Moto1DTO producto1DTO: productos1DTO) {
-			System.err.println(producto1DTO);
+		for(Moto1DTO moto1DTO: motos1DTO) {
+			System.err.println(moto1DTO);
 		}
 	}
 	
